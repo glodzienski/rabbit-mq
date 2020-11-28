@@ -1,0 +1,17 @@
+version: '3'
+
+networks:
+  env_network:
+    driver: bridge
+
+services:
+
+  env:
+    container_name: env
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    networks:
+      - env_network
+    volumes:
+      - ".:/package"
